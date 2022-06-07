@@ -1,0 +1,41 @@
+@use 'styles/_colors.scss';
+@use 'styles/_text.scss';
+
+.menu {
+  display: flex;
+  border-radius: 30px;
+  background-color: colors.$block-color;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  margin: auto;
+  width: 300px;
+  padding: 0 6px;
+}
+.menu__item {
+  color: colors.$text-color-dark;
+  font-size: 14px;
+  font-weight: bold;
+  text: {
+    transform: lowercase;
+    align: center;
+  }
+  display: flex;
+  height: 28px;
+  width: 100px;
+}
+
+.menu__item .item__text {
+  margin: auto;
+  opacity: 40%;
+}
+
+.menu__item_active .item__text {
+  margin: auto;
+  opacity: 100%;
+}
+.menu__item_active {
+  color: colors.$text-color-light;
+  background-color: colors.$color-red;
+  border-radius: 25px;
+}

@@ -1,0 +1,30 @@
+@use 'styles/_colors.scss';
+@use 'styles/_text.scss';
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$background;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  background-color: colors.$text-color-dark;
+  margin: auto;
+}
+
+body {
+  font: {
+    family: text.$sans-family;
+  }
+
+  text: {
+    transform: lowercase;
+    align: center;
+  }
+}
+

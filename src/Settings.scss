@@ -1,0 +1,7 @@
+@use 'styles/_colors.scss';
+.settings__button {
+  width:30px;
+  height: 30px;
+  color: colors.$text-color-dark;
+
+}

@@ -1,0 +1,50 @@
+@use 'styles/_colors.scss';
+@use 'styles/_text.scss';
+.timer {
+  width: 60vh;
+  height: 60vh;
+  background: linear-gradient(-45deg, #2E325A, #0E112A);
+  border-radius: 205px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.timer__background {
+  width: 90%;
+  height: 90%;
+  background-color: #161932;
+  border-radius: 205px;
+  margin: auto;
+  position: relative;
+}
+.timer__progress-view {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}
+.timer__progress-bar {
+  stroke: colors.$color-red;
+  fill: none;
+  stroke-width: 8px;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  r: 48%;
+  cx: 50%;
+  cy: 50%;
+}
+.timer__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: colors.$text-color-dark;
+  font-family: text.$sans-family;
+}
+.timer__time {
+  font-size: 70px;
+  font-weight: bolder;
+}
+.timer__text {
+  font-size: 25px;
+}

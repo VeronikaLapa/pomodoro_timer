@@ -1,0 +1,14 @@
+@use 'styles/_colors.scss';
+@use 'styles/_text.scss';
+.title {
+  color: colors.$text-color-dark;
+  font: {
+    size: 25px;
+    weight: bold;
+  }
+
+  text: {
+    transform: lowercase;
+    align: center;
+  }
+}
