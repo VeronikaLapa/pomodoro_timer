@@ -1,19 +1,53 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import "./Timer.scss";
 
-function Timer(props) {
+function Timer({limit}) {
+    const [timer, setTimer] = useState(limit);
+    const [pause, setPause] = useState(false);
+    let interval = useRef(null);
+
+    const dashArray = 720;
+
+    useEffect(()=> {
+        if (timer > 0 && !pause) {
+            interval.current = setTimeout(()=>{setTimer(timer-1)}, 1000);
+        } else {
+            clearInterval(interval.current);
+        }
+    })
+
+    function getMinutes() {
+        return Math.floor(timer / 60 ).toString().padStart(2, '0');
+    }
+    function getSeconds() {
+        return (timer % 60).toString().padStart(2,'0');
+    }
+    function onTimerClick() {
+        setPause(!pause);
+        clearInterval(interval.current);
+    }
+    function getTimerStatus() {
+        if (timer === 0) {
+            return 'restart';
+        } else {
+            return pause ? 'start':'pause';
+        }
+    }
+    function calculateProgress() {
+        return dashArray * (timer/limit);
+    }
     return (
         <div className="timer">
-            <div className="timer__background">
+            <div className="timer__background" onClick={onTimerClick}>
                 <svg className="timer__progress-view">
                     <circle className="timer__progress-bar"
                     r="48%"
                     strokeDasharray="720"
-                    strokeDashoffset={350}/>
+                    strokeDashoffset={calculateProgress()}/>
                 </svg>
                 <div className="timer__text">
-                    <div className="timer__time">10:13</div>
-                    <div className="timer__action-pause">pause</div>
+                    <div className="timer__time">{getMinutes()}:{getSeconds()}</div>
+                    <div className="timer__action-pause" >{getTimerStatus()}</div>
                 </div>
             </div>
         </div>
