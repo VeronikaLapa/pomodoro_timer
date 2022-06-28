@@ -33,6 +33,7 @@
   r: 48%;
   cx: 50%;
   cy: 50%;
+  transition: stroke-dashoffset 1s linear;
 }
 .timer__text {
   position: absolute;

@@ -6,7 +6,7 @@ function Timer({limit}) {
     const [pause, setPause] = useState(false);
     let interval = useRef(null);
 
-    const dashArray = 720;
+    const dashArray = 730;
 
     useEffect(()=> {
         if (timer > 0 && !pause) {
@@ -23,8 +23,13 @@ function Timer({limit}) {
         return (timer % 60).toString().padStart(2,'0');
     }
     function onTimerClick() {
-        setPause(!pause);
-        clearInterval(interval.current);
+        if (timer === 0) {
+            setTimer(limit);
+            setPause(false);
+        } else {
+            setPause(!pause);
+            clearInterval(interval.current);
+        }
     }
     function getTimerStatus() {
         if (timer === 0) {
@@ -42,7 +47,7 @@ function Timer({limit}) {
                 <svg className="timer__progress-view">
                     <circle className="timer__progress-bar"
                     r="48%"
-                    strokeDasharray="720"
+                    strokeDasharray="725"
                     strokeDashoffset={calculateProgress()}/>
                 </svg>
                 <div className="timer__text">

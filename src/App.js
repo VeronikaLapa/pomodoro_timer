@@ -9,7 +9,7 @@ function App() {
     <div className="app">
       <Name/>
       <TypeMenu/>
-      <Timer limit={75}/>
+      <Timer limit={15}/>
       <Settings/>
     </div>
   );
