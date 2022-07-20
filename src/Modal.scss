@@ -1,3 +1,5 @@
+@use 'styles/_colors.scss';
+
 .modal__back {
   position: fixed;
   z-index: 1;
@@ -13,10 +15,42 @@
   align-items: center;
 }
 
+.modal__menu-item {
+  border-top: #979797 solid 1px;
+  display: flex;
+  align-items: center;
+  h2 {
+    margin-right: auto;
+  }
+  input[type="radio"] {
+    display: none;
+  };
+  input[type="radio"]:checked + label {
+    background-color: #161932;
+    color: white;
+  }
+  label {
+    border-radius: 50%;
+    background-color: #EFF1FA;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 3px;
+  }
+}
+.modal__menu-item_first {
+  border-top: none;
+}
+.modal__menu {
+  margin: 0 20px;
+}
+
 .modal__body {
   width: 40%;
   min-width: 350px;
-  height: 60%;
   background-color: white;
   margin: auto;
   position: absolute;
@@ -30,6 +64,8 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
+  height: 30px;
+  font-size: 25px;
 }
 .modal__exit-button {
   svg {
@@ -38,3 +74,15 @@
   }
   color: #979797;
 }
+.modal__action {
+  color: white;
+  background-color: colors.$color-red;
+  border-radius: 20px;
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+  border-style: none;
+  transform: translateY(50%);
+}
+
+
