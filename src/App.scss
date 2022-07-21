@@ -18,10 +18,6 @@
 }
 
 body {
-  font: {
-    family: text.$sans-family;
-  }
-
   text: {
     align: center;
   }
@@ -33,3 +29,12 @@ body {
   cursor: pointer;
 }
 
+.sans-font {
+  font-family: text.$sans;
+}
+.roboto-font {
+  font-family: text.$roboto;
+}
+.monospace-font {
+  font-family: text.$monospace;
+}
