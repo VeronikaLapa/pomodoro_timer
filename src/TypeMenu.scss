@@ -7,22 +7,22 @@
   background-color: colors.$block-color;
   flex-direction: row;
   align-items: center;
-  height: 40px;
+  height: 60px;
   margin: auto;
-  width: 300px;
+  width: 320px;
   padding: 0 6px;
 }
 .menu__item {
   color: colors.$text-color-dark;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   text: {
     transform: lowercase;
     align: center;
   }
   display: flex;
-  height: 28px;
-  width: 100px;
+  height: 75%;
+  width: 34%;
 }
 
 .menu__item .item__text {

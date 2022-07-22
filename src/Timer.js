@@ -6,7 +6,7 @@ function Timer({limit}) {
     const [pause, setPause] = useState(false);
     let interval = useRef(null);
 
-    const dashArray = 730;
+    const dashArray = 965;
 
     useEffect(()=> {
         if (timer > 0 && !pause) {
@@ -47,7 +47,7 @@ function Timer({limit}) {
                 <svg className="timer__progress-view">
                     <circle className="timer__progress-bar"
                     r="48%"
-                    strokeDasharray="725"
+                    strokeDasharray={dashArray}
                     strokeDashoffset={calculateProgress()}/>
                 </svg>
                 <div className="timer__text">

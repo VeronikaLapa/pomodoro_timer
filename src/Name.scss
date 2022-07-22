@@ -3,7 +3,7 @@
 .title {
   color: colors.$text-color-dark;
   font: {
-    size: 25px;
+    size: 28px;
     weight: bold;
   }
 
@@ -11,4 +11,5 @@
     transform: lowercase;
     align: center;
   }
+  margin: 0;
 }

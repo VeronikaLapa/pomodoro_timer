@@ -1,13 +1,14 @@
 @use 'styles/_colors.scss';
 @use 'styles/_text.scss';
 .timer {
-  width: 60vh;
-  height: 60vh;
+  width: 370px;
+  height: 370px;
   background: linear-gradient(-45deg, #2E325A, #0E112A);
   border-radius: 205px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
+  box-shadow: -30px -30px 50px #272C5A;
 }
 .timer__background {
   width: 90%;
@@ -19,14 +20,14 @@
   cursor: pointer;
 }
 .timer__progress-view {
-  width: 90%;
-  height: 90%;
-  margin: 5%;
+  width: 92%;
+  height: 92%;
+  margin: 4%;
 }
 .timer__progress-bar {
   stroke: colors.$color-red;
   fill: none;
-  stroke-width: 8px;
+  stroke-width: 7px;
   stroke-linecap: round;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
@@ -43,8 +44,9 @@
   color: colors.$text-color-dark;
 }
 .timer__time {
-  font-size: 70px;
+  font-size: 90px;
   font-weight: bolder;
+  padding-top: 15px;
 }
 .timer__text {
   font-size: 25px;
