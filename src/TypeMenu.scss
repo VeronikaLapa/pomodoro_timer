@@ -11,6 +11,9 @@
   margin: auto;
   width: 320px;
   padding: 0 6px;
+  input[type="radio"] {
+    display: none;
+  }
 }
 .menu__item {
   color: colors.$text-color-dark;
@@ -30,12 +33,12 @@
   opacity: 40%;
 }
 
-.menu__item_active .item__text {
-  margin: auto;
-  opacity: 100%;
-}
-.menu__item_active {
+input[type="radio"]:checked + label {
   color: colors.$text-color-light;
   background-color: colors.$color-red;
   border-radius: 25px;
+  .item__text {
+    margin: auto;
+    opacity: 100%;
+  }
 }

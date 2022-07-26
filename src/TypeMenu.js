@@ -1,25 +1,28 @@
 import React from 'react';
 import "./TypeMenu.scss";
 
-function TypeMenu(props) {
+function TypeMenu({resetTimer}) {
     return (
         <div>
             <div className="menu">
-                <div className="menu__item menu__item_active">
-                    <div className="item__text">
+                <input type="radio" name="type" id="pomodoro" value="pomodoro" defaultChecked={true} onChange={() => resetTimer(15*60)}/>
+                <label className="menu__item" htmlFor="pomodoro">
+                    <div className="item__text" >
                         pomodoro
                     </div>
-                </div>
-                <div className="menu__item">
+                </label>
+                <input type="radio" name="type" id="short_break" value="short_break" onChange={() => resetTimer(3*60)}/>
+                <label className="menu__item" htmlFor="short_break">
                     <div className="item__text">
                         short break
                     </div>
-                </div>
-                <div className="menu__item">
+                </label>
+                <input type="radio" name="type" id="long_break" value="long_break" onChange={() => resetTimer(5*60)}/>
+                <label className="menu__item" htmlFor="long_break">
                     <div className="item__text">
                         long break
                     </div>
-                </div>
+                </label>
             </div>
         </div>
     );

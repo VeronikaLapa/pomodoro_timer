@@ -14,7 +14,13 @@ function Timer({limit}) {
         } else {
             clearInterval(interval.current);
         }
-    })
+    },[timer, pause])
+
+    useEffect(() => {
+        setTimer(limit);
+        clearInterval(interval.current);
+        setPause(true);
+    }, [limit]);
 
     function getMinutes() {
         return Math.floor(timer / 60 ).toString().padStart(2, '0');
