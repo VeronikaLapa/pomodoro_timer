@@ -6,7 +6,20 @@ import {FontContext, fonts} from "./сontexts/FontContext";
 
 function Settings(props) {
     let [show, setShow] = useState(false);
-
+    let [settings, setSettings] = useState({font: fonts.sans})
+    let saveSettings = function(setFont) {
+        setFont(settings.font);
+    }
+    function FontItem({name}) {
+        return <>
+            <input type="radio" name="font"
+                   id={name}
+                   value={name}
+                   checked={settings.font===name}
+                   onChange={() => setSettings(prevSettings=>({...prevSettings, font: name}))}/>
+            <label htmlFor={name} className={`${name}-font`}>Aa</label>
+        </>
+    }
     return (
         <FontContext.Consumer>
             {({font, setFont}) => (
@@ -14,31 +27,24 @@ function Settings(props) {
                     <button className="settings__button icon-button" onClick={()=>{setShow(true)}}>
                         <MdSettings className= "settings__button-icon"/>
                     </button>
-                    <Modal show={show} title="Settings" onClose={()=>{setShow(false)}} actionName="Apply" actionFunction={()=>{}}>
+                    <Modal show={show} title="Settings"
+                           onClose={()=>{setShow(false)}}
+                           actionName="Apply"
+                           actionFunction={(e)=>{
+                               e.preventDefault();
+                               saveSettings(setFont);
+                               setShow(false);
+                            }
+                           }>
 
                         <div className="modal__menu-item modal__menu-item_first">
                             <h2>Time</h2>
                         </div>
                         <div className="modal__menu-item">
                             <h2>Font</h2>
-                            <input type="radio" name="font"
-                                   id="sans"
-                                   value="sans"
-                                   checked={font==='sans'}
-                                   onChange={() => setFont(fonts.sans)}/>
-                            <label htmlFor="sans" className="sans-font">Aa</label>
-                            <input type="radio" name="font"
-                                   id="roboto"
-                                   value="roboto"
-                                   checked={font==='roboto'}
-                                   onChange={()=> setFont(fonts.roboto)}/>
-                            <label htmlFor="roboto" className="roboto-font">Aa</label>
-                            <input type="radio" name="font"
-                                   id="monospace"
-                                   value="monospace"
-                                   checked={font==='monospace'}
-                                   onChange={() => setFont(fonts.monospace)}/>
-                            <label htmlFor="monospace" className="monospace-font">Aa</label>
+                            <FontItem name="sans"></FontItem>
+                            <FontItem name="roboto"></FontItem>
+                            <FontItem name="monospace"></FontItem>
                         </div>
                         <div className="modal__menu-item">
                             <h2>Color</h2>
