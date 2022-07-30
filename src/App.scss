@@ -38,3 +38,14 @@ body {
 .monospace-font {
   font-family: text.$monospace;
 }
+.red-color {
+  background-color: colors.$color-red;
+}
+.blue-color {
+  background-color: colors.$color-blue;
+  color: colors.$text-color-light;
+}
+.purple-color {
+  background-color: colors.$color-purple;
+  color: colors.$text-color-light;
+}

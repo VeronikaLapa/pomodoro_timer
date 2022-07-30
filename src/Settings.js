@@ -1,28 +1,44 @@
-import React, {useState} from 'react';
-import { MdSettings } from 'react-icons/md'
+import React, {useContext, useState} from 'react';
+import {MdCheck, MdSettings} from 'react-icons/md'
 import "./Settings.scss"
 import Modal from "./Modal";
-import {FontContext, fonts} from "./сontexts/FontContext";
+import {SettingsContext} from "./сontexts/SettingsContext";
 
 function Settings(props) {
     let [show, setShow] = useState(false);
-    let [settings, setSettings] = useState({font: fonts.sans})
-    let saveSettings = function(setFont) {
-        setFont(settings.font);
+    let [crntSettings, setCrntSettings] = useState(useContext(SettingsContext).settings)
+
+    let saveSettings = function(setSettings) {
+        setSettings({font: crntSettings.font, color: crntSettings.color});
     }
-    function FontItem({name}) {
+
+    function FontItem({name, setting, children, currentFont}) {
         return <>
-            <input type="radio" name="font"
+            <input type="radio" name={setting}
                    id={name}
                    value={name}
-                   checked={settings.font===name}
-                   onChange={() => setSettings(prevSettings=>({...prevSettings, font: name}))}/>
-            <label htmlFor={name} className={`${name}-font`}>Aa</label>
+                   checked={crntSettings.font===name}
+                   onChange={() => setCrntSettings(prevSettings=>({...prevSettings, font: name}))}/>
+            <label htmlFor={name} className={`${name}-${setting} ${setting}`}>{children}</label>
         </>
     }
+    function ColorItem({name, setting, children, currentColor}) {
+        return <>
+            <input type="radio" name={setting}
+                   id={name}
+                   value={name}
+                   checked={crntSettings.color===name}
+                   onChange={() => setCrntSettings(prevSettings=>({...prevSettings, color: name}))}/>
+            <label htmlFor={name} className={`${name}-${setting} ${setting}`}>{children}</label>
+        </>
+    }
+    function CheckIcon() {
+        return <MdCheck className="color-settings_check"/>
+    }
+
     return (
-        <FontContext.Consumer>
-            {({font, setFont}) => (
+        <SettingsContext.Consumer>
+            {({settings, setSettings}) => (
                 <div className="settings">
                     <button className="settings__button icon-button" onClick={()=>{setShow(true)}}>
                         <MdSettings className= "settings__button-icon"/>
@@ -32,7 +48,7 @@ function Settings(props) {
                            actionName="Apply"
                            actionFunction={(e)=>{
                                e.preventDefault();
-                               saveSettings(setFont);
+                               saveSettings(setSettings);
                                setShow(false);
                             }
                            }>
@@ -42,19 +58,22 @@ function Settings(props) {
                         </div>
                         <div className="modal__menu-item">
                             <h2>Font</h2>
-                            <FontItem name="sans"></FontItem>
-                            <FontItem name="roboto"></FontItem>
-                            <FontItem name="monospace"></FontItem>
+                            <FontItem name="sans" setting="font" currentFont={settings.font}>Aa</FontItem>
+                            <FontItem name="roboto" setting="font" currentFont={settings.font}>Aa</FontItem>
+                            <FontItem name="monospace" setting="font" currentFont={settings.font}>Aa</FontItem>
                         </div>
                         <div className="modal__menu-item">
                             <h2>Color</h2>
+                            <ColorItem name="red" setting="color" ><CheckIcon/></ColorItem>
+                            <ColorItem name="blue" setting="color"><CheckIcon/></ColorItem>
+                            <ColorItem name="purple" setting="color" ><CheckIcon/></ColorItem>
                         </div>
 
                     </Modal>
                 </div>
                 )
             }
-        </FontContext.Consumer>
+        </SettingsContext.Consumer>
     );
 }
 

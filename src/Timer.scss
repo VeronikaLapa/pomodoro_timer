@@ -25,7 +25,6 @@
   margin: 4%;
 }
 .timer__progress-bar {
-  stroke: colors.$color-red;
   fill: none;
   stroke-width: 7px;
   stroke-linecap: round;
@@ -35,6 +34,15 @@
   cx: 50%;
   cy: 50%;
   transition: stroke-dashoffset 1s linear;
+}
+.timer__progress-bar.red-color {
+  stroke: colors.$color-red;
+}
+.timer__progress-bar.blue-color {
+  stroke: colors.$color-blue;
+}
+.timer__progress-bar.purple-color {
+  stroke: colors.$color-purple;
 }
 .timer__text {
   position: absolute;

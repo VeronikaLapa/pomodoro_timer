@@ -17,6 +17,7 @@
 }
 .menu__item {
   color: colors.$text-color-dark;
+  background-color: colors.$block-color;
   font-size: 12px;
   font-weight: bold;
   text: {
@@ -33,12 +34,20 @@
   opacity: 40%;
 }
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + .menu__item {
   color: colors.$text-color-light;
-  background-color: colors.$color-red;
   border-radius: 25px;
   .item__text {
     margin: auto;
     opacity: 100%;
   }
+}
+input[type="radio"]:checked + .red-color {
+  background-color: colors.$color-red;
+}
+input[type="radio"]:checked + .blue-color {
+  background-color: colors.$color-blue;
+}
+input[type="radio"]:checked + .purple-color {
+  background-color: colors.$color-purple;
 }

@@ -25,13 +25,20 @@
   input[type="radio"] {
     display: none;
   };
-  input[type="radio"]:checked + label {
+  input[type="radio"]:checked + .font {
     background-color: #161932;
     color: white;
   }
+
+  input[type="radio"]:checked + .color .color-settings_check {
+   opacity: 100%;
+  }
+  .color .color-settings_check {
+    opacity: 0%;
+  }
+
   label {
     border-radius: 50%;
-    background-color: #EFF1FA;
     width: 40px;
     height: 40px;
     display: flex;
@@ -39,6 +46,9 @@
     justify-content: center;
     cursor: pointer;
     margin: 3px;
+  }
+  .font {
+    background-color: #EFF1FA;
   }
 }
 .modal__menu-item_first {
@@ -75,9 +85,8 @@
   color: #979797;
 }
 .modal__action {
-  color: white;
-  background-color: colors.$color-red;
   border-radius: 20px;
+
   width: 120px;
   height: 40px;
   font-size: 20px;

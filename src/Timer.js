@@ -1,9 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import "./Timer.scss";
+import {SettingsContext} from "./сontexts/SettingsContext";
 
 function Timer({limit}) {
     const [timer, setTimer] = useState(limit);
     const [pause, setPause] = useState(false);
+    let color = useContext(SettingsContext)?.settings?.color;
+
     let interval = useRef(null);
 
     const dashArray = 965;
@@ -51,7 +54,7 @@ function Timer({limit}) {
         <div className="timer">
             <div className="timer__background" onClick={onTimerClick}>
                 <svg className="timer__progress-view">
-                    <circle className="timer__progress-bar"
+                    <circle className={`timer__progress-bar ${color}-color`}
                     r="48%"
                     strokeDasharray={dashArray}
                     strokeDashoffset={calculateProgress()}/>

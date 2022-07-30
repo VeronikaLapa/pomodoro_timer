@@ -3,8 +3,8 @@ import Name from "./Name";
 import TypeMenu from "./TypeMenu";
 import Timer from "./Timer";
 import Settings from "./Settings";
-import FontProvider from "./providers/FontProvider";
-import {FontContext} from "./сontexts/FontContext";
+import SettingsProvider from "./providers/SettingsProvider";
+import {SettingsContext} from "./сontexts/SettingsContext";
 import { useState} from "react";
 
 function App() {
@@ -13,10 +13,10 @@ function App() {
         setLimit({limit: newLimit});
     }
   return (
-      <FontProvider>
-          <FontContext.Consumer>
-              {({font}) => (
-                  <div className={`${font}-font app`}>
+      <SettingsProvider>
+          <SettingsContext.Consumer>
+              {({settings}) => (
+                  <div className={`${settings.font}-font app`}>
                       <Name/>
                       <TypeMenu resetTimer={resetTimer}/>
                       <Timer limit={limit.limit}/>
@@ -24,8 +24,8 @@ function App() {
                   </div>
 
               )}
-          </FontContext.Consumer>
-      </FontProvider>
+          </SettingsContext.Consumer>
+      </SettingsProvider>
   );
 }
 
