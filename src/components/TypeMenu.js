@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import "./TypeMenu.scss";
-import {SettingsContext} from "./сontexts/SettingsContext";
+import {SettingsContext} from "../сontexts/SettingsContext";
 
 function TypeMenu({resetTimer}) {
     let color = useContext(SettingsContext)?.settings?.color;

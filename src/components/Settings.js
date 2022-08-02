@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import {MdCheck, MdSettings} from 'react-icons/md'
 import "./Settings.scss"
 import Modal from "./Modal";
-import {SettingsContext} from "./сontexts/SettingsContext";
+import {SettingsContext} from "../сontexts/SettingsContext";
 
 function Settings(props) {
     let [show, setShow] = useState(false);
@@ -43,6 +43,7 @@ function Settings(props) {
                     <button className="settings__button icon-button" onClick={()=>{setShow(true)}}>
                         <MdSettings className= "settings__button-icon"/>
                     </button>
+                    {show?
                     <Modal show={show} title="Settings"
                            onClose={()=>{setShow(false)}}
                            actionName="Apply"
@@ -70,6 +71,7 @@ function Settings(props) {
                         </div>
 
                     </Modal>
+                    :<></>}
                 </div>
                 )
             }

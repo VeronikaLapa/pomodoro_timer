@@ -3,8 +3,8 @@ import Name from "./Name";
 import TypeMenu from "./TypeMenu";
 import Timer from "./Timer";
 import Settings from "./Settings";
-import SettingsProvider from "./providers/SettingsProvider";
-import {SettingsContext} from "./сontexts/SettingsContext";
+import SettingsProvider from "../providers/SettingsProvider";
+import {SettingsContext} from "../сontexts/SettingsContext";
 import { useState} from "react";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
     }
   return (
       <SettingsProvider>
+          <div id="modal-container"/>
           <SettingsContext.Consumer>
               {({settings}) => (
                   <div className={`${settings.font}-font app`}>

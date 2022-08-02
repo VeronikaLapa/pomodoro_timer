@@ -1,5 +1,5 @@
-@use 'styles/_colors.scss';
-@use 'styles/_text.scss';
+@use '../styles/colors';
+@use '../styles/text';
 
 .menu {
   display: flex;

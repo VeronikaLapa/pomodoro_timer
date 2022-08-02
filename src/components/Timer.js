@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import "./Timer.scss";
-import {SettingsContext} from "./сontexts/SettingsContext";
+import {SettingsContext} from "../сontexts/SettingsContext";
 
 function Timer({limit}) {
     const [timer, setTimer] = useState(limit);
